@@ -33,7 +33,6 @@ public class Simple {
 
 		txtUser.sendKeys("dhanushkarthi876@gmail.com");
 
-		// Thread.sleep(5000);
 
 		WebElement btnContinue = driver.findElement(By.id("login"));
 
