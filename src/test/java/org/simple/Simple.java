@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Simple {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 
 		WebDriverManager.chromedriver().setup();
 
@@ -32,7 +32,6 @@ public class Simple {
 		WebElement txtUser = driver.findElement(By.id("user"));
 
 		txtUser.sendKeys("dhanushkarthi876@gmail.com");
-
 
 		WebElement btnContinue = driver.findElement(By.id("login"));
 
@@ -60,14 +59,13 @@ public class Simple {
 		driver.findElement(By.xpath("//textarea[@placeholder='Enter a title for this card…']"))
 				.sendKeys("Enter Username & Password", Keys.ENTER);
 
-		driver.findElement(By.xpath("//span[text()='Enter Username & Password']")).click();
-		driver.findElement(By.xpath("//a[text()='List A']")).click();
+		WebElement src = driver.findElement(By.xpath("//div[@class='list-card-details js-card-details']"));
 
-		driver.findElement(By.xpath("//select[@class='js-select-list'] //descendant::option[text()='List B']")).click();
+		WebElement des = driver.findElement(By.xpath("//a[@class='open-card-composer js-open-card-composer']"));
 
-		driver.findElement(By.xpath("//input[@value='Move']")).click();
+		Actions actions = new Actions(driver);
 
-		driver.findElement(By.xpath("//a[@aria-label='Close dialog']")).click();
+		actions.dragAndDrop(src, des).perform();
 
 		driver.findElement(By.xpath("//button[@title='Karthikeyan M (dhanushkarthi876)']")).click();
 

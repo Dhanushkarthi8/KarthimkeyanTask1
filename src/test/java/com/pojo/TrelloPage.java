@@ -52,25 +52,10 @@ public class TrelloPage extends BaseClass {
 	@FindBy(xpath = "//input[@name='name']")
 	private WebElement txtListB;
 
-	@FindBy(xpath = "//span[text()='Enter Username & Password']")
-	private WebElement lnkMove1;
-
-	@FindBy(xpath = "//a[text()='List A']")
-	private WebElement lnkMove2;
-
-	@FindBy(xpath = "//select[@class='js-select-list'] //descendant::option[text()='List B']")
-	private WebElement lnkMove3;
-
-	@FindBy(xpath = "//input[@value='Move']")
-	private WebElement lnkMove4;
-
-	@FindBy(xpath = "//a[@aria-label='Close dialog']")
-	private WebElement lnkMove5;
-
-	@FindBy(xpath = "//span[@class='list-card-title js-card-name']")
+	@FindBy(xpath = "//div[@class='list-card-details js-card-details']")
 	private WebElement dragSource;
 
-	@FindBy(xpath = "//span[@class='list-card-details js-card-details']")
+	@FindBy(xpath = "//a[@class='open-card-composer js-open-card-composer']")
 	private WebElement dragDest;
 
 	@FindBy(xpath = "//button[@title='Karthikeyan M (dhanushkarthi876)']")
@@ -147,26 +132,6 @@ public class TrelloPage extends BaseClass {
 		return btnLogout;
 	}
 
-	public WebElement getLnkMove1() {
-		return lnkMove1;
-	}
-
-	public WebElement getLnkMove2() {
-		return lnkMove2;
-	}
-
-	public WebElement getLnkMove3() {
-		return lnkMove3;
-	}
-
-	public WebElement getLnkMove4() {
-		return lnkMove4;
-	}
-
-	public WebElement getLnkMove5() {
-		return lnkMove5;
-	}
-
 	public void login(String user, String pass) {
 
 		// Login Functionality
@@ -207,11 +172,9 @@ public class TrelloPage extends BaseClass {
 
 		sendKeys1(getTxtListB(), ListB);
 
-		clickElement(getLnkMove1());
-		clickElement(getLnkMove2());
-		clickElement(getLnkMove3());
-		clickElement(getLnkMove4());
-		clickElement(getLnkMove5());
+		// Drag And Drop
+
+		dragandDrop(getDragSource(), getDragDest());
 
 		xCoordinate(getTxtListA());
 

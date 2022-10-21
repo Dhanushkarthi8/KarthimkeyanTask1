@@ -117,12 +117,6 @@ public class BaseClass {
 		element.click();
 	}
 
-	public String getText(WebElement element) {
-		String text = element.getText();
-		System.out.println(text);
-		return text;
-
-	}
 
 	public String getAttribute(WebElement element) {
 		String att = element.getAttribute("value");
@@ -163,13 +157,7 @@ public class BaseClass {
 
 	}
 
-	// 22.
-	public void mouseOver(WebElement element) {
-
-		Actions actions = new Actions(driver);
-		actions.moveToElement(element).perform();
-
-	}
+	
 
 	// 23.
 	public void dragandDrop(WebElement source, WebElement target) {
@@ -179,26 +167,8 @@ public class BaseClass {
 
 	}
 
-	// 39.
-	public void selectByValue(WebElement element, String value) {
-		Select select = new Select(element);
-		select.selectByValue(value);
-	}
 
-	// 40.
-	public void selectByVisibleText(WebElement element, String text) {
-		Select select = new Select(element);
-		select.selectByVisibleText(text);
-	}
-
-	// 58
-
-	public void sleep(long millis) throws InterruptedException {
-
-		Thread.sleep(millis);
-	}
-
-	// 59.
+	
 	public static void implicitlyWaits(int value) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(value));
 
